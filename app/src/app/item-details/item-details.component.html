@@ -1,0 +1,34 @@
+<p>item-details works!</p>
+<div *ngIf="item">
+  <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th> Category</th>
+            <!--<th>sku</th>-->
+            <th>Item Description</th>
+            <th>Price</th>
+        
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr >
+            
+    <td><a href= "{{item.image_url}}" [routerLink]="['/edit',item.skuid]"routerLinkActive="active" class="nav-link"> <img src="{{item.image_url}}" alt="Girl in a jacket" width="60" height="50"></a></td>
+  
+    <td>{{item.name}}</td>
+    <td>{{item.category}}</td>
+   <!--<td>{{item.skuid}}</td> -->
+    <td>{{item.description}}</td>
+    <td>{{item.price}}</td>
+    
+ </tr>
+ </tbody>
+ </table>
+ </div>
+  
+  <br>
+  <br>
+  <button (click)="goTolist()" class="btn btn-primary">Back to Item List</button><br>

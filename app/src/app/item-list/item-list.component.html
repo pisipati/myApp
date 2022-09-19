@@ -1,0 +1,42 @@
+
+
+<div class="container">
+    <router-outlet></router-outlet>
+    <button type = "button" class = "btn btn-primary btn-sm">
+        <a [routerLink]="['/add']" routerLinkActive="active" class="nav-link">Add Item</a></button>
+        
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Item Name</th>
+                <th> Category</th>
+                <!--<th>sku</th>-->
+                <th>Item Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let item of items | async">
+                
+        <td><a href= "{{item.image_url}}" [routerLink]="['/edit',item.skuid] "routerLinkActive="active" class="nav-link"> <img src="{{item.image_url}}" alt="Girl in a jacket" width="60" height="50"></a></td>
+      
+        <td>{{item.name}}</td>
+        <td>{{item.category}}</td>
+      
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        
+        <td><button (click)="deleteItem(item.skuid)" class="btn btn-danger">Delete</button></td>
+        
+
+      </tr>
+      </tbody>
+       
+       
+    </table>
+    <!--<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls> -->
+</div>
